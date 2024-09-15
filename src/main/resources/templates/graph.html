@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Price Prediction Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bitcoin Price Prediction Chart</h1>
+        <canvas id="bitcoinChart"></canvas>
+    </div>
+
+    <script th:inline="javascript">
+        // Thymeleaf를 사용하여 서버에서 전달받은 데이터
+        const monthlyData = /*[[${monthlyData}]]*/ [];
+        const predictions = /*[[${predictions}]]*/ [];
+
+        // 차트를 그리는 함수
+        function drawChart() {
+            const ctx = document.getElementById('bitcoinChart').getContext('2d');
+            
+            const labels = [
+                ...Array(monthlyData.length).fill().map((_, i) => `Past ${monthlyData.length - i}h`),
+                ...Array(predictions.length).fill().map((_, i) => `Future ${i + 1}h`)
+            ];
+
+            const chartData = [...monthlyData, ...predictions];
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Bitcoin Price',
+                        data: chartData,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: 'Price (USD)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Time'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `$${context.parsed.y.toFixed(2)}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 페이지 로드 시 차트 그리기
+        window.onload = drawChart;
+    </script>
+</body>
+</html>
