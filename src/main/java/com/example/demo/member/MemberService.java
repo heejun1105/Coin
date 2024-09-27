@@ -1,5 +1,7 @@
 package com.example.demo.member;
 
+import java.time.LocalDateTime;
+
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -24,6 +26,16 @@ public class MemberService {
 		Member member = memberRepository.findByMemberId(MemberId).get();
 		
 		return member;
+	}
+	
+	public void createmember(String memberId, String passWord, String email) {
+		
+		Member member = new Member();
+		
+		member.setMemberId(memberId);
+		member.setPassword(passWord);
+		member.setEmail(email);
+		member.setCreateDate(LocalDateTime.now());
 	}
 	
 }
