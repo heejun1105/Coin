@@ -3,6 +3,7 @@ package com.example.demo.member;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -29,6 +30,7 @@ public class Member {
     @SequenceGenerator(name = "member_seq", sequenceName = "member_seq", allocationSize = 1)
 	private Long memberNum;
 	
+	@Column(unique = true)
 	private String memberId;
 	
 	private String password;

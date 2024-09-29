@@ -28,6 +28,7 @@ public class MemberService {
 		return member;
 	}
 	
+	//회원등록
 	public void createmember(String memberId, String passWord, String email) {
 		
 		Member member = new Member();
@@ -36,6 +37,17 @@ public class MemberService {
 		member.setPassword(passWord);
 		member.setEmail(email);
 		member.setCreateDate(LocalDateTime.now());
+		
+		memberRepository.save(member);
+	}
+	
+	//회원수정
+	public void modifyMember(String passWord, String email, Member member) {
+		
+		member.setPassword(passWord);
+		member.setEmail(email);
+		
+		memberRepository.save(member);
 	}
 	
 }
