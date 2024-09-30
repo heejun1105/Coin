@@ -29,7 +29,7 @@ public class MemberService {
 	}
 	
 	//회원등록
-	public void createmember(String memberId, String passWord, String email) {
+	public void createMember(String memberId, String passWord, String email) {
 		
 		Member member = new Member();
 		
