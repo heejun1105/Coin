@@ -50,4 +50,10 @@ public class MemberService {
 		memberRepository.save(member);
 	}
 	
+	//회원삭제
+	public void deleteMember(Member member) {
+		
+		memberRepository.delete(member);
+	}
+	
 }
