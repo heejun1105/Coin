@@ -26,5 +26,9 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "accountNum")
     @SequenceGenerator(name = "accountNum", sequenceName = "accountNum", allocationSize = 1)
 	private Long accountNum;
+	
+	private int possesstionKRW;
+	
+	
 
 }
