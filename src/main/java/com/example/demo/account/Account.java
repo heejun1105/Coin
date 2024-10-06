@@ -29,6 +29,8 @@ public class Account {
 	
 	private Long possesstionKRW;
 	
+	private Long totalAssets;
+	
 	
 
 }
