@@ -27,6 +27,7 @@ public class Account {
     @SequenceGenerator(name = "accountNum", sequenceName = "accountNum", allocationSize = 1)
 	private Long accountNum;
 	
+	//보유KRW
 	private Long possesstionKRW;
 	
 	private Long totalAssets;
