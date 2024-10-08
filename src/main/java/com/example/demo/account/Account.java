@@ -30,6 +30,7 @@ public class Account {
 	//보유KRW
 	private Long possesstionKRW;
 	
+	//총 보유 자산
 	private Long totalAssets;
 	
 	
