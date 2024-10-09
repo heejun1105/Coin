@@ -13,6 +13,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+//현재보유자산 엔티티
 @Entity
 @Getter
 @Setter
