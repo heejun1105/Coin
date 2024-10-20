@@ -7,5 +7,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class AccountService {
+	
+	private final AccountRepository accountRepository;
 
 }
