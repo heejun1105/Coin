@@ -9,5 +9,9 @@ import lombok.RequiredArgsConstructor;
 public class AccountService {
 	
 	private final AccountRepository accountRepository;
+	
+	public Account getAccount(Long accountNum) {
+		
+	}
 
 }
