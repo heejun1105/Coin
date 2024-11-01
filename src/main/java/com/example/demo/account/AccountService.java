@@ -1,5 +1,7 @@
 package com.example.demo.account;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -12,6 +14,7 @@ public class AccountService {
 	
 	public Account getAccount(Long accountNum) {
 		
+		Optional<Account>
 	}
 
 }
