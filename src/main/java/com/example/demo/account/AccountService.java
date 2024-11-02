@@ -14,7 +14,9 @@ public class AccountService {
 	
 	public Account getAccount(Long accountNum) {
 		
-		Optional<Account>
-	}
+		Optional<Account> account = accountRepository.findByAccountNum(accountNum);
+		
+		return account.get();
+		}
 
 }
