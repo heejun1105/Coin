@@ -12,6 +12,7 @@ public class AccountService {
 	
 	private final AccountRepository accountRepository;
 	
+	//고유번호로계좌찾기
 	public Account getAccount(Long accountNum) {
 		
 		Optional<Account> account = accountRepository.findByAccountNum(accountNum);
