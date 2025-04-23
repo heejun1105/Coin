@@ -20,12 +20,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "ACCOUNT")
+@Table(name = "account")
 public class Account {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "accountNum")
-    @SequenceGenerator(name = "accountNum", sequenceName = "accountNum", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long accountNum;
 	
 	//보유KRW
